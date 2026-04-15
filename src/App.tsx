@@ -32,6 +32,7 @@ import { Badge } from "@/components/ui/badge";
 import { Candidate, HiringOutput } from "./types";
 import { analyzeHiringData } from "./services/gemini";
 import { HiringDashboard } from "./components/HiringDashboard";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 type Step = "job" | "candidates" | "analyzing" | "results";
 
@@ -458,6 +459,7 @@ export default function App() {
           <p className="text-bento-border text-xs font-medium tracking-widest uppercase">© 2026 AI Hiring Engine. Secure Neural Assessment.</p>
         </div>
       </footer>
+      <SpeedInsights />
     </div>
   );
 }
