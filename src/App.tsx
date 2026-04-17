@@ -406,17 +406,27 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex flex-col items-center justify-center py-32 space-y-8"
+              className="flex flex-col items-center justify-center py-32 space-y-12"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-bento-accent/20 blur-[100px] rounded-full animate-pulse" />
                 <Loader2 className="w-20 h-20 text-bento-accent animate-spin relative z-10" />
               </div>
-              <div className="text-center space-y-3">
+              <div className="text-center space-y-4 max-w-md">
                 <h3 className="text-3xl font-bold tracking-tight">AI Engine Processing</h3>
-                <p className="text-bento-dim max-w-md text-lg">
-                  Cross-referencing neural profiles with architectural requirements.
+                <p className="text-bento-dim text-lg leading-relaxed">
+                  Cross-referencing neural profiles with architectural requirements and cultural benchmarks.
                 </p>
+                <div className="flex items-center justify-center gap-2 pt-6">
+                  {[0, 1, 2].map(i => (
+                    <motion.div
+                      key={i}
+                      animate={{ scale: [1, 1.5, 1], opacity: [0.3, 1, 0.3] }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.4 }}
+                      className="w-1.5 h-1.5 rounded-full bg-bento-accent"
+                    />
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}

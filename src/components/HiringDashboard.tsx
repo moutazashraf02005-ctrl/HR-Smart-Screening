@@ -179,7 +179,7 @@ function CandidateAnalysisSection({ candidate, data }: { candidate: CandidateAna
         <div className="bento-card md:col-span-2">
           <div className="bento-card-title">Tailored Interview Questions</div>
           <div className="space-y-4">
-            {data.interview_questions[candidate.name]?.slice(0, 2).map((q, i) => (
+            {data.interview_questions[candidate.name]?.slice(0, 3).map((q, i) => (
               <div key={i} className="text-sm text-bento-text opacity-80 leading-relaxed flex gap-3">
                 <span className="text-bento-accent font-bold">Q{i + 1}</span>
                 {q}
@@ -188,12 +188,27 @@ function CandidateAnalysisSection({ candidate, data }: { candidate: CandidateAna
           </div>
         </div>
 
-        {/* Insight Card */}
+        {/* Outreach Card */}
         <div className="bento-card md:col-span-2">
-          <div className="bento-card-title">Final AI Insight</div>
-          <p className="bento-insight-box">
-            {data.tasks[candidate.name] || "Assessment recommended to verify deep technical claims."}
-          </p>
+          <div className="bento-card-title">Suggested Outreach</div>
+          <div className="bg-bento-bg/30 p-4 rounded-lg border border-bento-border/30 relative">
+            <Mail className="absolute right-4 top-4 w-4 h-4 text-bento-dim opacity-50" />
+            <p className="text-xs text-bento-text leading-relaxed italic whitespace-pre-wrap">
+              {data.messages[candidate.name] || "Awaiting neural drafting..."}
+            </p>
+          </div>
+        </div>
+
+        {/* Insight Card */}
+        <div className="bento-card md:col-span-full">
+          <div className="bento-card-title">Evaluation Task & Task Intelligence</div>
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex-grow">
+              <p className="bento-insight-box">
+                {data.tasks[candidate.name] || "Assessment recommended to verify deep technical claims."}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
